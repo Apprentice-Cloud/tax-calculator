@@ -12,6 +12,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   display: flex;
+  justify-content: space-around;
 }
 
 main,
@@ -26,6 +27,7 @@ main {
   box-shadow: 2px 3px #73777b;
   padding: 20px;
   min-height: 450px;
+  height: fit-content;
 }
 .main--content {
   display: grid;
@@ -70,6 +72,10 @@ main {
   font-weight: bolder;
   font-size: 1rem;
 } */
+
+.check {
+  padding: 1.5rem 0;
+}
 
 .check span {
   font-size: 0.9rem;
@@ -130,4 +136,35 @@ input[type="number"]:focus {
 .btn-calculate:hover {
   transform: scale(0.9);
   background: #14c38e;
+}
+
+.output {
+  /* display: none; */
+}
+
+table {
+  width: 100%;
+  max-width: 400px;
+}
+
+table tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+td {
+  padding: 1rem;
+  border: 1px solid #73777b;
+}
+
+td:first-child {
+  font-size: 700;
+  color: #73777b;
+}
+
+@media (max-width: 800px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

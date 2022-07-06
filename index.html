@@ -45,7 +45,13 @@
       <div class="main--content">
         <h2 class="content--title">Benefits(Bonus, allowance):</h2>
         <div class="check">
-          <input type="number" name="sal" id="sal" min="0" placeholder="0" />
+          <input
+            type="number"
+            name="benefits"
+            id="benefits"
+            min="0"
+            placeholder="0"
+          />
           <span class="ksh">Ksh</span>
         </div>
       </div>
@@ -79,7 +85,9 @@
         </div>
       </div>
 
-      <button class="btn btn-calculate" type="submit">Calculate</button>
+      <button class="btn btn-calculate" id="btn" type="submit">
+        Calculate
+      </button>
     </main>
 
     <div class="output">
@@ -87,51 +95,51 @@
         <tbody>
           <tr>
             <td>income before pension deduction</td>
-            <td>KSh 2444</td>
+            <td class="total--income">Ksh 0</td>
           </tr>
           <tr>
             <td>deductible nssf pension contribution</td>
-            <td>KSh 2444</td>
+            <td class="nssf-deduct">KSh 0</td>
           </tr>
           <tr>
             <td>income after pension deductions</td>
-            <td>KSh 2444</td>
+            <td class="income--pension">KSh 0</td>
           </tr>
           <tr>
             <td>benefits in kind</td>
-            <td>KSh 2444</td>
+            <td class="benefits--payed">KSh 0</td>
           </tr>
           <tr>
             <td>taxable income</td>
-            <td>KSh 2444</td>
+            <td class="taxable--income">KSh 0</td>
           </tr>
           <tr>
             <td>tax on taxable income</td>
-            <td>KSh 2444</td>
+            <td class="tax-accrued">KSh 0</td>
           </tr>
           <tr>
             <td>personal relief</td>
-            <td>KSh 2444</td>
+            <td class="relief">KSh 0</td>
           </tr>
           <tr>
             <td>tax net off relief</td>
-            <td>KSh 2444</td>
+            <td class="relief--tax">KSh 0</td>
           </tr>
           <tr>
             <td>paye</td>
-            <td>KSh 2444</td>
+            <td class="relief--tax">KSh 0</td>
           </tr>
           <tr>
             <td>chargable income</td>
-            <td>KSh 2444</td>
+            <td class="taxable--income">KSh 0</td>
           </tr>
           <tr>
             <td>nhif contribution</td>
-            <td>KSh 2444</td>
+            <td class="nhif-contribution">KSh 0</td>
           </tr>
           <tr>
             <td>net pay</td>
-            <td>KSh 2444</td>
+            <td class="net--pay">KSh 0</td>
           </tr>
         </tbody>
       </table>

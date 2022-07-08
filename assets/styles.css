@@ -139,7 +139,7 @@ input[type="number"]:focus {
 }
 
 .output {
-  /* display: none; */
+  display: none;
 }
 
 table {
@@ -155,11 +155,13 @@ table tr {
 td {
   padding: 1rem;
   border: 1px solid #73777b;
+  letter-spacing: 0.2rem;
 }
 
 td:first-child {
   font-size: 700;
   color: #73777b;
+  letter-spacing: 0;
 }
 
 @media (max-width: 800px) {

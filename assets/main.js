@@ -24,7 +24,6 @@ let btnCalculate = document.getElementById("btn");
 const monthlyTaxablePay = (n) => {
   let monthlyTax;
   n = parseInt(n);
-  console.log(n);
   if (n <= 12298) {
     monthlyTax = 0.1 * n;
   } else if (n >= 12299 && n <= 23855) {
@@ -46,28 +45,22 @@ const monthlyTaxablePay = (n) => {
 
 const yearlyTaxablePay = (n) => {
   let yearlyTax;
-  switch (n) {
-    case n <= 147580:
-      yearlyTax = 0.1 * n;
-      break;
-    case 147581 <= n <= 286623:
-      yearlyTax = 0.15 * n;
-      break;
-    case 286624 <= n <= 425666:
-      yearlyTax = 0.2 * n;
-      break;
-    case 425667 <= n <= 564709:
-      yearlyTax = 2.5 * n;
-      break;
-    case n > 564709:
-      yearlyTax = 0.3 * n;
-      break;
-    default:
-      alert(`${n} not in any bracket`);
-      break;
+  n = parseInt(n);
+  if (n <= 147580) {
+    yearlyTax = 0.1 * n;
+  } else if (n >= 147581 && n <= 286623) {
+    yearlyTax = 0.15 * n;
+  } else if (n >= 286624 && n <= 425666) {
+    yearlyTax = 0.2 * n;
+  } else if (n >= 425667 && n <= 564709) {
+    yearlyTax = 2.5 * n;
+  } else if (n > 564709) {
+    yearlyTax = 0.3 * n;
+  } else {
+    alert(`${n} not in any bracket`);
   }
   console.log(
-    `Your monthly tax is ${yearlyTax} calc from a monthly income of ${n}`
+    `Your yearly tax is ${yearlyTax} calc from a yearly income of ${n}`
   );
   return yearlyTax;
 };
@@ -77,61 +70,42 @@ const yearlyTaxablePay = (n) => {
 // NHIF Contribution based on monthly salary
 const nhifContribution = (monthlyIncome) => {
   let nhifCont;
-  switch (monthlyIncome) {
-    case 1000 < monthlyIncome <= 5999:
-      nhifCont = 150;
-      break;
-    case 6000 <= monthlyIncome <= 7999:
-      nhifCont = 300;
-      break;
-    case 8000 <= monthlyIncome <= 11999:
-      nhifCont = 400;
-      break;
-    case 12000 <= monthlyIncome <= 14999:
-      nhifCont = 500;
-      break;
-    case 15000 <= monthlyIncome <= 19999:
-      nhifCont = 600;
-      break;
-    case 20000 <= monthlyIncome <= 24999:
-      nhifCont = 750;
-      break;
-    case 25000 <= monthlyIncome <= 29999:
-      nhifCont = 850;
-      break;
-    case 30000 <= monthlyIncome <= 34999:
-      nhifCont = 900;
-      break;
-    case 35000 <= monthlyIncome <= 39999:
-      nhifCont = 950;
-      break;
-    case 40000 <= monthlyIncome <= 44999:
-      nhifCont = 1000;
-      break;
-    case 45000 <= monthlyIncome <= 49999:
-      nhifCont = 1100;
-      break;
-    case 50000 <= monthlyIncome <= 59999:
-      nhifCont = 1200;
-      break;
-    case 60000 <= monthlyIncome <= 69999:
-      nhifCont = 1300;
-      break;
-    case 70000 <= monthlyIncome <= 79999:
-      nhifCont = 1400;
-      break;
-    case 80000 <= monthlyIncome <= 89999:
-      nhifCont = 1500;
-      break;
-    case 90000 <= monthlyIncome <= 99999:
-      nhifCont = 1600;
-      break;
-    case monthlyIncome >= 100000:
-      nhifCont = 1700;
-      break;
-    default:
-      alert(`${monthlyIncome} is not on the list`);
-      break;
+  if (monthlyIncome > 1000 && monthlyIncome <= 5999) {
+    nhifCont = 150;
+  } else if (monthlyIncome >= 6000 && monthlyIncome <= 7999) {
+    nhifCont = 300;
+  } else if (monthlyIncome >= 8000 && monthlyIncome <= 11999) {
+    nhifCont = 400;
+  } else if (monthlyIncome >= 12000 && monthlyIncome <= 14999) {
+    nhifCont = 500;
+  } else if (monthlyIncome >= 15000 && monthlyIncome <= 19999) {
+    nhifCont = 600;
+  } else if (monthlyIncome >= 20000 && monthlyIncome <= 24999) {
+    nhifCont = 750;
+  } else if (monthlyIncome >= 25000 && monthlyIncome <= 29999) {
+    nhifCont = 850;
+  } else if (monthlyIncome >= 30000 && monthlyIncome <= 34999) {
+    nhifCont = 900;
+  } else if (monthlyIncome >= 35000 && monthlyIncome <= 39999) {
+    nhifCont = 950;
+  } else if (monthlyIncome >= 40000 && monthlyIncome <= 44999) {
+    nhifCont = 1000;
+  } else if (monthlyIncome >= 45000 && monthlyIncome <= 49999) {
+    nhifCont = 1100;
+  } else if (monthlyIncome >= 50000 && monthlyIncome <= 59999) {
+    nhifCont = 1200;
+  } else if (monthlyIncome >= 60000 && monthlyIncome <= 69999) {
+    nhifCont = 1300;
+  } else if (monthlyIncome >= 70000 && monthlyIncome <= 79999) {
+    nhifCont = 1400;
+  } else if (monthlyIncome >= 80000 && monthlyIncome <= 89999) {
+    nhifCont = 1500;
+  } else if (monthlyIncome >= 90000 && monthlyIncome <= 99999) {
+    nhifCont = 1600;
+  } else if (monthlyIncome >= 100000) {
+    nhifCont = 1700;
+  } else {
+    alert(`${monthlyIncome} is not on the list`);
   }
   console.log(
     ` Your NHIF contribution is ${nhifCont} calculated from your monthly Income of ${monthlyIncome}`
@@ -139,13 +113,10 @@ const nhifContribution = (monthlyIncome) => {
   return nhifCont;
 };
 
-// NSSF Rates
-let oldNSSFRate = 200;
-
 const newNSSFRate = (n) => {
   let newRate;
-  if (6000 <= n <= 18000) {
-    newRate = 0.6 * n;
+  if (6000 <= n && n <= 18000) {
+    newRate = 0.06 * n;
   } else {
     newRate = 2160;
   }
@@ -165,29 +136,25 @@ const output = document.querySelector(".output"),
   nhifDeduct = output.querySelector(".nhif-contribution"),
   netPay = output.querySelector(".net--pay");
 
-console.log(totalSalary);
-
 btnCalculate.addEventListener("click", () => {
   showDeductibles();
-  //   console.log(salary.value, benefits.value);
-  console.log(newNSSF.checked);
-  console.log(deductNHIFY.checked);
-  console.log(deductNHIFN.checked);
+  output.style.display = "block";
 });
 
 const showDeductibles = () => {
   let yourSal = salary.value;
   let yourBenefits = benefits.value;
 
-  let yourTotal;
   let yourPersonalRelief;
   let yourNSSFContribution;
   let taxToPay;
 
-  if (deductNSSFY.checked && oldNSSF.checked) {
+  if (deductNSSFY.checked && oldNSSF.checked && monthlyPay.checked) {
     yourNSSFContribution = 200;
   } else if (deductNSSFY.checked && newNSSF.checked) {
     yourNSSFContribution = newNSSFRate(yourSal);
+  } else if (deductNSSFY.checked && oldNSSF.checked && yearlyPay.checked) {
+    yourNSSFContribution = 2400;
   } else if (deductNSSFN.checked) {
     yourNSSFContribution = 0;
   } else {
@@ -196,9 +163,12 @@ const showDeductibles = () => {
 
   let yourNSSFCont = yourNSSFContribution.toFixed(2);
   let salAfterPen = yourSal - yourNSSFCont;
-  let yourTaxableIncome = parseInt(salAfterPen) + parseInt(yourBenefits);
+  let yourTaxableIncome = (
+    parseInt(salAfterPen) + parseInt(yourBenefits)
+  ).toFixed(2);
   let removeRelief;
-  console.log(yourTaxableIncome);
+  let nhifDeducted = nhifContribution(yourTaxableIncome);
+  let yourTotal;
 
   if (monthlyPay.checked) {
     totalSalary.textContent = `Ksh ${yourSal}`;
@@ -208,14 +178,17 @@ const showDeductibles = () => {
     taxableKsh.forEach((tax) => {
       tax.textContent = `Ksh ${yourTaxableIncome}`;
     });
-    taxToPay = monthlyTaxablePay(yourTaxableIncome);
+    taxToPay = monthlyTaxablePay(yourTaxableIncome).toFixed(2);
     taxAccrued.textContent = `Ksh ${taxToPay}`;
     yourPersonalRelief = 2400;
     personalRelief.textContent = `Ksh ${yourPersonalRelief}`;
-    removeRelief = taxToPay - yourPersonalRelief;
+    removeRelief = (taxToPay - yourPersonalRelief).toFixed(2);
     taxWithoutRelief.forEach(
       (taxNoRelief) => (taxNoRelief.textContent = `Ksh ${removeRelief}`)
     );
+    nhifDeduct.textContent = `Ksh ${nhifDeducted}`;
+    yourTotal = (yourTaxableIncome - (removeRelief + nhifDeducted)).toFixed(2);
+    netPay.textContent = `Ksh ${yourTotal}`;
   } else if (yearlyPay.checked) {
     totalSalary.textContent = `Ksh ${yourSal}`;
     nssfDeduct.textContent = `Ksh ${yourNSSFCont}`;
@@ -225,13 +198,16 @@ const showDeductibles = () => {
     taxableKsh.forEach((tax) => {
       tax.textContent = `Ksh ${yourTaxableIncome}`;
     });
-    taxToPay = yearlyTaxablePay(yourTaxableIncome);
+    taxToPay = yearlyTaxablePay(yourTaxableIncome).toFixed(2);
     taxAccrued.textContent = `Ksh ${taxToPay}`;
     yourPersonalRelief = 28800;
     personalRelief.textContent = `Ksh ${yourPersonalRelief}`;
+    removeRelief = (taxToPay - yourPersonalRelief).toFixed(2);
     taxWithoutRelief.forEach(
       (taxNoRelief) => (taxNoRelief.textContent = `Ksh ${removeRelief}`)
     );
+    yourTotal = (yourTaxableIncome - removeRelief).toFixed(2);
+    netPay.textContent = `Ksh ${yourTotal}`;
   } else {
     alert("Something ain't right --month, year");
   }
